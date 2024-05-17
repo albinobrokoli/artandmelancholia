@@ -1,0 +1,11 @@
+django-admin startproject my_art_website
+cd my_art_website
+python manage.py startapp art
+echo "from django.db import models\n\nclass Artwork(models.Model):\n    title = models.CharField(max_length=200)\n    artist = models.CharField(max_length=100)\n    description = models.TextField()\n\n    def __str__(self):\n        return self.title" > art/models.py
+echo "from django.contrib import admin\nfrom .models import Artwork\n\nadmin.site.register(Artwork)" > art/admin.py
+git init
+git add .
+git commit -m "İlk commit"
+git branch -M main
+git remote add origin <GitHub_Repository_URL>
+git push -u origin main
